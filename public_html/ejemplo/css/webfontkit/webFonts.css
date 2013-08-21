@@ -1,0 +1,36 @@
+@font-face {
+ font-family: 'MovistarHeadlineRegular';
+ src: url('movistarheadline-regular-webfont.eot');
+ src: local(' '), url('movistarheadline-regular-webfont.woff') format('woff'), url('movistarheadline-regular-webfont.ttf') format('truetype'), url('movistarheadline-regular-webfont.svg#webfonteoaLuaHM') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+ @font-face {
+ font-family: 'MovistarHeadlineBold';
+ src: url('movistarheadline-bold-webfont.eot');
+ src: local(' '), url('movistarheadline-bold-webfont.woff') format('woff'), url('movistarheadline-bold-webfont.ttf') format('truetype'), url('movistarheadline-bold-webfont.svg#webfontZn988f35') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+ @font-face {
+ font-family: 'MovistarTextBold';
+ src: url('movistartext-bold-webfont.eot');
+ src: local(' '), url('movistartext-bold-webfont.woff') format('woff'), url('movistartext-bold-webfont.ttf') format('truetype'), url('movistartext-bold-webfont.svg#webfontV8IQNETb') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+ @font-face {
+ font-family: 'MovistarTextRegular';
+ src: url('movistartext-regular-webfont.eot');
+ src: local(' '), url('movistartext-regular-webfont.woff') format('woff'), url('movistartext-regular-webfont.ttf') format('truetype'), url('movistartext-regular-webfont.svg#webfont2vSHKtYi') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+ @font-face {
+ font-family: 'MovistarTextItalic';
+ src: url('movistartext-italic-webfont.eot');
+ src: local(' '), url('movistartext-italic-webfont.woff') format('woff'), url('movistartext-italic-webfont.ttf') format('truetype'), url('movistartext-italic-webfont.svg#webfontd151ykjY') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+

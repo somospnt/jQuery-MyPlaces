@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.connectis</groupId>
+    <artifactId>localizacion</artifactId>
+    <version>1.0</version>
+    <name>Localizacion</name>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>siteJasmine</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>testJasmine</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    
+                    <junitXmlReportFileName>../surefire-reports/TEST-jasmine.xml</junitXmlReportFileName>
+                    <jsSrcDir>${project.basedir}/public_html/js</jsSrcDir>
+                    <sourceIncludes>
+                        <include>**/lib/*.js</include>
+                        <include>**/lib/**/*.js</include>
+                        <include>**/lib/**/js/*.js</include>
+                        <include>**/app/*.js</include>
+                        <include>**/app/service/*.js</include>
+                        <include>**/app/service/**/*.js</include>
+                        <include>**/app/util/*.js</include>
+                        <include>**/app/util/establecimientos/*.js</include>
+                    </sourceIncludes>
+                    <jsTestSrcDir>${project.basedir}/test/js</jsTestSrcDir>
+                    
+                    <keepServerAlive>true</keepServerAlive>
+                    <haltOnFailure>false</haltOnFailure>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>com.github.timurstrekalov</groupId>
+                <artifactId>saga-maven-plugin</artifactId>
+                <version>1.4.0</version>
+                
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>coverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>http://localhost:${jasmine.serverPort}</baseDir>
+                    <outputDir>${project.build.directory}/site/jasmine</outputDir>
+                    <noInstrumentPatterns>
+                        <pattern>.*/spec/app/.*</pattern>
+                        <pattern>.*/src/lib/.*</pattern>
+                        <pattern>.*/src/ui/.*</pattern>
+                        <pattern>.*/src/app/service/.*</pattern>
+                    </noInstrumentPatterns>
+                </configuration>
+            </plugin>
+	    
+            <plugin>
+                <groupId>com.googlecode.jslint4java</groupId>
+                <artifactId>jslint4java-maven-plugin</artifactId>
+                <version>2.0.3</version>
+                <executions>
+                    <execution>
+                        <id>lint</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>lint</goal>
+                        </goals>
+                        <configuration>
+                            <failOnError>false</failOnError>
+                            <sourceJsFolder>/public_html/js</sourceJsFolder>
+                            <options>Ver http://jslint4java.googlecode.com/svn/docs/2.0.0/apidocs/com/googlecode/jslint4java/Option.html
+                                <bitwise>true</bitwise>
+                                <debug>false</debug>
+                                <eqeq>false</eqeq>
+                                Para prohibir el uso de logueo con: console; alert; etc.
+                                <devel>false</devel>
+                                <es5>true</es5>
+                                <nomen>false</nomen>
+                                <indent>4</indent>
+                                <newcap>true</newcap>
+                                <vars>true</vars>
+                                <undef>true</undef>
+                                <maxlen>150</maxlen>
+                                <sloppy>true</sloppy>
+                                <evil>true</evil>
+                                <plusplus>true</plusplus>
+                                Para que no tome la variable "document" como indefinida.
+                                <browser>true</browser>
+                                Indicamos las variables globales que usamos.
+                                <predef>$,loca</predef>
+                            </options>
+                            <includes>
+                                <include>/app/util/**</include>
+                            </includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>yuicompressor-maven-plugin</artifactId>
+                <version>1.3.0</version>
+                <executions>
+                    <execution>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>compress</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <nosuffix>true</nosuffix>
+                    <sourceDirectory>${basedir}/public_html/loca/js/app</sourceDirectory>
+                    <outputDirectory>${basedir}/target/javascripts</outputDirectory>
+                    <aggregations>
+                        <aggregation>
+                            <insertNewLine>true</insertNewLine>
+                            <output>${basedir}/target/javascripts/minified/localizacion.js</output>
+                            <inputDir>${basedir}/target/javascripts</inputDir>
+                            <includes>
+                                <include>loca.js</include>
+                                <include>service/service.js</include>
+                                <include>service/establecimiento/establecimiento.js</include>
+                                <include>util/util.js</include>
+                                <include>util/ui/ui.js</include>
+                                <include>util/ui/**/*.js</include>
+                                <include>plugin/loca.js</include>
+                            </includes>
+                        </aggregation>
+                    </aggregations>
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
