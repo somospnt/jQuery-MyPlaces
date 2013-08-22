@@ -14,20 +14,26 @@ It allows:
 
 ## Getting Started
 
-Link to the JS file:
+Include the minified plugin JS file:
 
 ```html
-<script type="text/javascript" src="../../loca/js/app/loca.js"></script>
-<script type="text/javascript" src="../../loca/js/app/service/service.js"></script>
-<script type="text/javascript" src="../../loca/js/app/service/establecimiento/establecimiento.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/util.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/ui/ui.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/ui/establecimientos/establecimientos.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/ui/mapa/mapa.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/ui/buscador/buscador.js"></script>
-<script type="text/javascript" src="../../loca/js/app/util/ui/filtro/filtro.js"></script>
-<script type="text/javascript" src="../../loca/js/app/plugin/loca.js"></script>
+<script type="text/javascript" src="../../dist/localizacion.min.js"></script>
 ```
+
+Or include all the plugin JS files:
+
+```html
+<script type="text/javascript" src="../../src/js/app/somospnt.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/util.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/ui/ui.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/ui/map/map.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/ui/places/places.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/ui/searcher/searcher.js"></script>
+<script type="text/javascript" src="../../src/js/app/util/ui/filter/filter.js"></script>
+<script type="text/javascript" src="../../src/js/app/plugin/loca.js"></script>
+```
+
+
 
 Add the CSS file (or append contents to your own stylesheet):
 
@@ -46,25 +52,23 @@ To initialize:
 // places
 var places = [
     {
-        "nombre" : "Place with required attributes",
-        "iconoMapa" : "http://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg",
-        "lat" : -34.6090944,
-        "lng" : -58.389152,
-        "tags" : ["place", "test", "required"]
+        "name": "My House",
+        "mapIcon": "http://r-ec.bstatic.com/images/hotel/square40/146/14694220.jpg",
+        "lat": -34.6290944,
+        "lng": -58.389152,
+        "tags": ["House", "Good Place"]
     },
     {
-        "id" : "1",
-        "nombre" : "The Simpsons house",
-        "direccion" : "742 Evergreen Terrace",
-        "localidad" : "Springfield",
-        "provincia" : "Fox",
-        "descripcionCorta" : "The Simpsons house",
-        "descripcionLarga" : "The Simpsons House was designed by Kaufman and Broad homebuilders",
-        "iconoLista" : "http://upload.wikimedia.org/wikipedia/en/thumb/c/ca/742_Evergreen_Terrace.png/300px-742_Evergreen_Terrace.png",
-        "iconoMapa" : "https://www.google.com.ar/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&docid=V-mdufPKgXG56M&tbnid=JyDhc1R3w2FQRM:&ved=0CAUQjRw&url=http%3A%2F%2Fes.simpsons.wikia.com%2Fwiki%2FThe_Simpsons&ei=iFYWUvLCC8S4igLLpoG4BA&psig=AFQjCNGBWz6ee5G22nwjMKlkCAX2g3x9Ng&ust=1377282042039516",
-        "lat" : -34.6190943,
-        "lng" : -58.389159,
-        "tags" : ["simpson", "house"]
+        "id": "1",
+        "name": "The Simpsons house",
+        "address": "742 Evergreen Terrace",
+        "state": "Springfield",
+        "shortDescription": "The Simpsons house",
+        "longDescription": "The Simpsons House was designed by Kaufman and Broad homebuilders",
+        "mapIcon": "https://si0.twimg.com/profile_images/3663934134/d2b2a7fcacec55ba63c06474d10de385_normal.jpeg",
+        "lat": -34.6190943,
+        "lng": -58.389159,
+        "tags": ["Simpsons", "House"]
     }
 ];
 
@@ -74,6 +78,7 @@ $('.container').loca();
 
 // or with custom settings
 $('.container').loca({
+    places: places,
     country: 'AR',
     onLoad: function() {
       alert('Congratulation');
@@ -85,17 +90,17 @@ $('.container').loca({
 
 | Key            | Default       | Values                     |  Description                                     |
 | ---------------|:-------------:|---------------------------:|-------------------------------------------------:|
-| establecimientos             | `[]`                                                                       | Array                   |                                                                              |
-| pais                         | `AR`                                                                     | ISO 3166-1 country code | Two letter ISO 3166-1 country code used for suggest adress in the search bar |
-| establecimientoListaTemplate | `<li>Ingrese un template para la lista de establecimientos</li>`         | String                  | Template or its id to render the locations list with jsRender                |
-| establecimientoInfoTemplate  | `<div>Ingrese un template para la información del establecimiento</div>` | String                  | Template or its id to render the selected location detail with jsRender      |
-| popUpMapaTemplate            | `<div>Ingrese un template el pop-up del establecimiento</div>`           | String                  | Template or its id to render the selected location tooltip in the map with jsRender |
-| onLoad                       |                                                                          | function                | Callback function, which is called when the map has been loaded |
-| onPlacesChange               |                                                                          | function                | Callback function, which is called when the locations list change|
-| onClickPlace                 |                                                                          | function                | Callback function, which is called when click in a place |
+| places            | `[]`                                                           | Array                   |                                                                              |
+| country           | `AR`                                                           | ISO 3166-1 country code | Two letter ISO 3166-1 country code used for suggest adress in the search bar |
+| placeListTemplate | `<li>Enter a template for the list of places</li>`             | String                  | Template or its id to render the locations list with jsRender                |
+| placeInfoTemplate | `<div>Enter a template for the information of the place</div>` | String                  | Template or its id to render the selected location detail with jsRender      |
+| popUpMapTemplate  | `<div>Enter a template for the pop-up of the place</div>`      | String                  | Template or its id to render the selected location tooltip in the map with jsRender |
+| onLoad            |                                                                | function                | Callback function, which is called when the map has been loaded |
+| onPlacesChange    |                                                                | function                | Callback function, which is called when the locations list change|
+| onClickPlace      |                                                                | function                | Callback function, which is called when click in a place |
 
 
-### Required attributes of establecimientos key
+### Required attributes of places key
 | Attribute            | Description |
 | ---------------|:-------------:|
 |lat| location latitude |

@@ -33,16 +33,13 @@
                 <configuration>
                     
                     <junitXmlReportFileName>../surefire-reports/TEST-jasmine.xml</junitXmlReportFileName>
-                    <jsSrcDir>${project.basedir}/public_html/js</jsSrcDir>
+                    <jsSrcDir>${project.basedir}/public_html/src/js</jsSrcDir>
                     <sourceIncludes>
                         <include>**/lib/*.js</include>
                         <include>**/lib/**/*.js</include>
                         <include>**/lib/**/js/*.js</include>
                         <include>**/app/*.js</include>
-                        <include>**/app/service/*.js</include>
-                        <include>**/app/service/**/*.js</include>
                         <include>**/app/util/*.js</include>
-                        <include>**/app/util/establecimientos/*.js</include>
                     </sourceIncludes>
                     <jsTestSrcDir>${project.basedir}/test/js</jsTestSrcDir>
                     
@@ -50,7 +47,7 @@
                     <haltOnFailure>false</haltOnFailure>
                 </configuration>
             </plugin>
-
+<!--
             <plugin>
                 <groupId>com.github.timurstrekalov</groupId>
                 <artifactId>saga-maven-plugin</artifactId>
@@ -75,7 +72,7 @@
                     </noInstrumentPatterns>
                 </configuration>
             </plugin>
-	    
+	 -->   
             <plugin>
                 <groupId>com.googlecode.jslint4java</groupId>
                 <artifactId>jslint4java-maven-plugin</artifactId>
@@ -89,7 +86,7 @@
                         </goals>
                         <configuration>
                             <failOnError>false</failOnError>
-                            <sourceJsFolder>/public_html/js</sourceJsFolder>
+                            <sourceJsFolder>/public_html/src/js</sourceJsFolder>
                             <options>Ver http://jslint4java.googlecode.com/svn/docs/2.0.0/apidocs/com/googlecode/jslint4java/Option.html
                                 <bitwise>true</bitwise>
                                 <debug>false</debug>
@@ -133,17 +130,15 @@
                 </executions>
                 <configuration>
                     <nosuffix>true</nosuffix>
-                    <sourceDirectory>${basedir}/public_html/loca/js/app</sourceDirectory>
+                    <sourceDirectory>${basedir}/public_html/src/js/app</sourceDirectory>
                     <outputDirectory>${basedir}/target/javascripts</outputDirectory>
                     <aggregations>
                         <aggregation>
                             <insertNewLine>true</insertNewLine>
-                            <output>${basedir}/target/javascripts/minified/localizacion.js</output>
+                            <output>${basedir}/public_html/dist/localizacion.min.js</output>
                             <inputDir>${basedir}/target/javascripts</inputDir>
                             <includes>
-                                <include>loca.js</include>
-                                <include>service/service.js</include>
-                                <include>service/establecimiento/establecimiento.js</include>
+                                <include>somospnt.js</include>
                                 <include>util/util.js</include>
                                 <include>util/ui/ui.js</include>
                                 <include>util/ui/**/*.js</include>
