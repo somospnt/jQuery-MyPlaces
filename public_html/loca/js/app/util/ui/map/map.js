@@ -40,8 +40,8 @@ somospnt.util.ui.map = (function() {
                 location.marker = new google.maps.Marker({
                     position: new google.maps.LatLng(places[i].lat, places[i].lng),
                     map: map,
-                    title: places[i].nombre,
-                    icon: places[i].iconoMapa
+                    title: places[i].name,
+                    icon: places[i].mapIcon
                 });
 
                 locations.push(location);
