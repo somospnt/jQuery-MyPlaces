@@ -1,1 +1,1 @@
-loca.util.ui = {};
+somospnt.util.ui = {};

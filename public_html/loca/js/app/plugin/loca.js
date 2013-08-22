@@ -1,19 +1,19 @@
 (function($) {
     $.fn.extend({
-        loca: function(opcionesIngresadas) {
+        loca: function(insertedOptions) {
 
             var these = this;
 
-            loca.service.establecimiento.obtenerEstablecimientos(opcionesIngresadas.urlGoogleDocs, function(establecimientos) {
+            somospnt.service.places.getPlaces(insertedOptions.urlGoogleDocs, function(places) {
 
-                opcionesIngresadas.establecimientos = establecimientos;
+                insertedOptions.places = places;
 
-                var opciones = {
-                    establecimientos: [],
-                    pais: "AR",
-                    establecimientoListaTemplate: '<li>Ingrese un template para la lista de establecimientos</li>',
-                    establecimientoInfoTemplate: '<div>Ingrese un template para la información del establecimiento</div>',
-                    popUpMapaTemplate: '<div>Ingrese un template el pop-up del establecimiento</div>',
+                var options = {
+                    places: [],
+                    country: "AR",
+                    placeListTemplate: '<li>Enter a template for the list of places</li>',
+                    placeInfoTemplate: '<div>Enter a template for the information of the place</div>',
+                    popUpMapTemplate: '<div>Enter a template for the pop-up of the place</div>',
                     onLoad: function() {
                     },
                     onPlacesChange: function() {
@@ -22,17 +22,17 @@
                     }
                 };
 
-                $.extend(opciones, opcionesIngresadas);
+                $.extend(options, insertedOptions);
 
-                var locaHtml = '<div class="loca-buscador"><input class="loca-buscador-input" type="text" /><ul><li class="loca-buscar">Buscar</li></ul></div><ul class="loca-categories"></ul><div class="loca-establecimientos"><div class="loca-listaEstablecimientos"><ul></ul></div><div class="loca-infoEstablecimiento"><div class="loca-infoContenido"></div></div></div><div class="loca-mapa"></div>';
+                var locaHtml = '<div class="loca-searcher"><input class="loca-searcher-input" type="text" /><ul><li class="loca-buscar">Search</li></ul></div><ul class="loca-categories"></ul><div class="loca-places"><div class="loca-placesList"><ul></ul></div><div class="loca-placeInfo"><div class="loca-infoContenido"></div></div></div><div class="loca-map"></div>';
                 $(these).append(locaHtml);
 
-                loca.util.ui.establecimientos.init(opciones.establecimientoListaTemplate, opciones.establecimientoInfoTemplate, opciones.onPlacesChange, opciones.onClickPlace);
-                loca.util.ui.mapa.init(opciones.establecimientos, opciones.popUpMapaTemplate);
-                loca.util.ui.buscador.init(opciones.pais);
-                loca.util.ui.filtro.init(opciones.establecimientos);
+                somospnt.util.ui.places.init(options.placeListTemplate, options.placeInfoTemplate, options.onPlacesChange, options.onClickPlace);
+                somospnt.util.ui.map.init(options.places, options.popUpMapTemplate);
+                somospnt.util.ui.searcher.init(options.country);
+                somospnt.util.ui.filter.init(options.places);
 
-                opciones.onLoad();
+                options.onLoad();
 
             });
         }

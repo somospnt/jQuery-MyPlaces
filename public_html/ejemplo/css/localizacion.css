@@ -13,7 +13,7 @@ h1 {
     color: #005F82;
 }
 
-.contenedor {
+.container {
     width: 1000px;
     height: 800px;
     margin: auto;
@@ -22,26 +22,26 @@ h1 {
 /************************************
  * Buscador
 ************************************/
-.loca-buscador {
+.loca-searcher {
     width: 100%;
     margin: 30px 0;
 }
 
-.loca-buscador ul, .loca-buscador input{
+.loca-searcher ul, .loca-searcher input{
     display: inline;
     width: 50%;
 }
 
-.loca-buscador input{
+.loca-searcher input{
     height: 30px;
 }
 
-.loca-buscador ul{
+.loca-searcher ul{
     display: inline;
     height: 30px;
 }
 
-.loca-buscador ul>li {
+.loca-searcher ul>li {
     display: inline;
     -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
     -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
@@ -71,7 +71,7 @@ h1 {
     cursor: pointer;
 }
 
-.loca-buscador ul>li:hover {
+.loca-searcher ul>li:hover {
     border: solid 1px black;
     background-color: #cadfaa;
 
@@ -80,7 +80,7 @@ h1 {
 /************************************
  * Establecimientos
 ************************************/
-.loca-establecimientos {
+.loca-places {
     border: 1px solid #D6EBE7;
     border-radius: 4px 4px 4px 4px;
     display: inline-block;
@@ -90,7 +90,7 @@ h1 {
     width: 50%;
 }
 
-.loca-listaEstablecimientos {
+.loca-placesList {
     display: inline-block;
     font-family: 'Open Sans', sans-serif;
     height: 500px;
@@ -98,14 +98,14 @@ h1 {
     width: 40%;
 }
 
-.loca-listaEstablecimientos  ul  {
+.loca-placesList  ul  {
     display: inline;
     margin: 0;
     padding: 0;
     text-align: left;
 }
 
-.loca-listaEstablecimientos  ul > li {
+.loca-placesList  ul > li {
     background-color: #EFF3F7;
     border-bottom: 1px solid #DEE7E7;
     list-style: none outside none;
@@ -113,15 +113,15 @@ h1 {
     cursor: pointer;
 }
 
-.loca-listaEstablecimientos  ul > li:hover {
+.loca-placesList  ul > li:hover {
     background-color: #E0E3E5;
 }
 
-.loca-listaEstablecimientos  ul > li.loca-establecimientoSelected {
+.loca-placesList  ul > li.loca-selectedPlaces {
     background-color: #FFFFFF;
 }
 
-.loca-listaEstablecimientos  ul > li > h1{
+.loca-placesList  ul > li > h1{
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
     font-size: 13px;
@@ -131,21 +131,21 @@ h1 {
     text-shadow: none;
     padding: 10px 0 0;
 }
-.loca-listaEstablecimientos  ul > li > h3{
+.loca-placesList  ul > li > h3{
     font-size: 12px;
     margin: 0 0 0 10px;
 }
-.loca-listaEstablecimientos  ul > li > h5{
+.loca-placesList  ul > li > h5{
     margin: 0 0 0 10px;
     font-size: 11px;
 }
-.loca-listaEstablecimientos  ul > li > p{
+.loca-placesList  ul > li > p{
     margin: 0 0 0 10px;
     font-size: 11px;
     padding: 0 0 8px;
 }
 
-.loca-infoEstablecimiento {
+.loca-placeInfo {
     border-left: 1px solid #D6EBE7;
     display: inline-block;
     font-family: 'Open Sans', sans-serif;
@@ -156,38 +156,38 @@ h1 {
     width: 59.8%;
 }
 
-.loca-infoEstablecimiento  h3{
+.loca-placeInfo  h3{
     font-size: 13px;
     margin: 13% 15px 0 15px;
 }
 
-.loca-infoEstablecimiento  p{
+.loca-placeInfo  p{
     font-size: 13px;
     margin: 0 15px 0 15px;
 }
 
-.loca-infoEstablecimiento  ul{
+.loca-placeInfo  ul{
     font-size: 13px;
     margin: 0;
     margin: 0 15px 0 15px;
 }
-.loca-infoEstablecimiento  ul > li {
+.loca-placeInfo  ul > li {
     background: url("../img/flicon.gif") no-repeat scroll 0 7px transparent;
     list-style: none outside none;
     margin-left: 10px;
     padding: 0 0 0 10px;
 }
-.loca-infoEstablecimiento .loca-establecimientoEmail {
+.loca-placeInfo .loca-placeEmail {
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.loca-infoEstablecimiento .loca-establecimientoEmail > h3 {
+.loca-placeInfo .loca-placeEmail > h3 {
     display: inline;
     font-size: 12px;
     margin: 0 15px 0 15px;
 }
-.loca-infoEstablecimiento .loca-establecimientoEmail > p {
+.loca-placeInfo .loca-placeEmail > p {
     color: #8CBEE7;
     display: inline;
     font-size: 13px;
@@ -196,7 +196,7 @@ h1 {
 /************************************
  * Mapa
 ************************************/
-.loca-mapa {
+.loca-map {
     display: inline-block;
     width: 49%;
     height: 500px;

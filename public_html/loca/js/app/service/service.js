@@ -1,1 +1,1 @@
-loca.service = {};
+somospnt.service = {};

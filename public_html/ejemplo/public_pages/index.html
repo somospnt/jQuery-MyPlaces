@@ -13,7 +13,7 @@
     <body>
         <h1>Localización</h1>
 
-        <div class="contenedor">
+        <div class="container">
         </div>
         <!--Bibliotecas-->
         <script type="text/javascript" src="../js/lib/jquery-1.10.2.js"></script>
@@ -25,15 +25,15 @@
         <script src="../js/lib/myCustomScrollbar/jquery.mCustomScrollbar.min.js"></script>
 
         <!--Plugin-->
-        <script type="text/javascript" src="../../loca/js/app/loca.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/somospnt.js"></script>
         <script type="text/javascript" src="../../loca/js/app/service/service.js"></script>
-        <script type="text/javascript" src="../../loca/js/app/service/establecimiento/establecimiento.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/service/places/places.js"></script>
         <script type="text/javascript" src="../../loca/js/app/util/util.js"></script>
         <script type="text/javascript" src="../../loca/js/app/util/ui/ui.js"></script>
-        <script type="text/javascript" src="../../loca/js/app/util/ui/establecimientos/establecimientos.js"></script>
-        <script type="text/javascript" src="../../loca/js/app/util/ui/mapa/mapa.js"></script>
-        <script type="text/javascript" src="../../loca/js/app/util/ui/buscador/buscador.js"></script>
-        <script type="text/javascript" src="../../loca/js/app/util/ui/filtro/filtro.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/util/ui/places/places.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/util/ui/map/map.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/util/ui/searcher/searcher.js"></script>
+        <script type="text/javascript" src="../../loca/js/app/util/ui/filter/filter.js"></script>
         <script type="text/javascript" src="../../loca/js/app/plugin/loca.js"></script>
 
 
@@ -44,13 +44,13 @@
             $(document).ready(function() {
 
 
-                $(".contenedor").loca({
+                $(".container").loca({
                     urlGoogleDocs: "https://spreadsheets.google.com/feeds/cells/0AlqC7Ig33rWjdG4wT0lnRVlOUWd1dHdPWjJNUzhrOXc/1/public/basic?alt=json",
                     pais: "AR",
-                    establecimientoListaTemplate: '<li><h1>{{:nombre}}</h1><h3>{{:direccion}}</h3><h5>{{:localidad}}</h5><p>{{:descripcionCorta}}</p></li>',
-                    establecimientoInfoTemplate: '#placeInfoTemplate',
-                    popUpMapaTemplate: '#infowindowTemplate',
-                    onLoad: crearScrollbar
+                    placeListTemplate: '<li><h1>{{:nombre}}</h1><h3>{{:direccion}}</h3><h5>{{:localidad}}</h5><p>{{:descripcionCorta}}</p></li>',
+                    placeInfoTemplate: '#placeInfoTemplate',
+                    popUpMapTemplate: '#infowindowTemplate',
+                    onLoad: createSrollBar
                             //onPlacesChange: callback,
                             //onClickPlace: callback
 
@@ -58,9 +58,9 @@
 
 
 
-                function crearScrollbar() {
+                function createSrollBar() {
 
-                    $(".loca-listaEstablecimientos, .loca-infoEstablecimiento").mCustomScrollbar({
+                    $(".loca-placesList, .loca-placeInfo").mCustomScrollbar({
                         theme: "dark-thick",
                         advanced: {
                             updateOnContentResize: true
@@ -80,9 +80,9 @@
         </script>
 
         <script id="placeInfoTemplate" type="text/x-jsrender">
-            <h3>Nombre:</h3>
+            <h3>Name:</h3>
             <p>{{:nombre}}</p>
-            <h3>Actividades:</h3>
+            <h3>Activities:</h3>
             <ul>
             {{for tags}}
             <li>{{:#data}}</li>
@@ -90,8 +90,8 @@
             </ul>
             <h3>{{:provincia}}</h3>
             <p>{{:descripcionLarga}}</p>
-            <div class="loca-establecimientoEmail">
-            <h3>Dirección:</h3>
+            <div class="loca-placeEmail">
+            <h3>Address:</h3>
             <p>{{:direccion}}</p>
             </div>
         </script>
