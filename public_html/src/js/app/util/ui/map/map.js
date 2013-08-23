@@ -69,7 +69,7 @@ somospnt.util.ui.map = (function() {
 
     }
 
-    function cambioEnFiltros() {
+    function changeFilters() {
 
         var visibleLocations = getVisibleLocations();
 
@@ -170,7 +170,7 @@ somospnt.util.ui.map = (function() {
             makeLocationsVisible(notMatchedLocations, false);
         }
 
-        cambioEnFiltros();
+        changeFilters();
     }
 
     function makeLocationsVisible(locations, visible) {
