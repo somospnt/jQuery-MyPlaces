@@ -2,11 +2,11 @@ var somospnt={};
 somospnt.util={};
 somospnt.util.ui={};
 somospnt.util.ui.filter=(function(){var a;
-function d(f){a=$.templates('<li class="loca-category"><label class="loca-check" for="{{:#data}}">{{:#data}}<input type="checkbox" id="{{:#data}}" /></label></li>');
+function d(f){a=$.templates('<li class="myplaces-category"><label class="myplaces-check" for="{{:#data}}">{{:#data}}<input type="checkbox" id="{{:#data}}" /></label></li>');
 e(f);
-$(".loca-category").on("click",b)
+$(".myplaces-category").on("click",b)
 }function e(f){var g=c(f);
-$(".loca-categories").append(a.render(g))
+$(".myplaces-categories").append(a.render(g))
 }function c(g){var k=[];
 if(g){for(var h=0;
 h<g.length;
@@ -15,9 +15,9 @@ f<g[h].tags.length;
 f++){if($.inArray(g[h].tags[f],k)===-1){k.push(g[h].tags[f])
 }}}}}return k
 }function b(){var f=[];
-$(".loca-check").removeClass("loca-check-on");
-$(".loca-check input[type=checkbox]:checked").each(function(g,h){f.push($(h).attr("id"));
-$(h).parent("label").addClass("loca-check-on")
+$(".myplaces-check").removeClass("myplaces-check-on");
+$(".myplaces-check input[type=checkbox]:checked").each(function(g,h){f.push($(h).attr("id"));
+$(h).parent("label").addClass("myplaces-check-on")
 });
 somospnt.util.ui.map.filterLocations(f)
 }return{init:d}
@@ -28,7 +28,7 @@ function p(q,r){e=$.templates(r);
 n();
 g(q)
 }function n(){var q={zoom:12,center:new google.maps.LatLng(-34.6090944,-58.389152),mapTypeId:google.maps.MapTypeId.ROADMAP};
-c=new google.maps.Map($(".loca-map").get(0),q);
+c=new google.maps.Map($(".myplaces-map").get(0),q);
 h=new google.maps.InfoWindow();
 i=new google.maps.Marker({map:c});
 google.maps.event.addListener(c,"idle",b)
@@ -74,7 +74,7 @@ c.setZoom(17)
 i.setVisible(true);
 var q="";
 if(r.address_components){q=[(r.address_components[0]&&r.address_components[0].short_name||""),(r.address_components[1]&&r.address_components[1].short_name||""),(r.address_components[2]&&r.address_components[2].short_name||"")].join(" ")
-}h.setContent('<div class="loca-info"><strong>'+r.name+"</strong><br>"+q);
+}h.setContent('<div class="myplaces-info"><strong>'+r.name+"</strong><br>"+q);
 h.open(c,i)
 }function l(u){j(k,true);
 if(u.length){var r=[];
@@ -99,43 +99,43 @@ q.infowindow=h
 }return{init:p,focusOnGooglePlace:m,filterLocations:l,highlightPlace:o}
 })();
 somospnt.util.ui.places=(function(){var d,h;
-var k="loca-establecimiento-";
+var k="myplaces-establecimiento-";
 var a,f;
 function j(l,o,m,n){d=$.templates(l);
 h=$.templates(o);
 a=m;
 f=n;
-$(".loca-placesList ul").on("click","li",b);
-$(".loca-infoContenido").append('<p class="loca-info-results">To see the details of a place please click on it.</p>')
+$(".myplaces-placesList ul").on("click","li",b);
+$(".myplaces-infoContenido").append('<p class="myplaces-info-results">To see the details of a place please click on it.</p>')
 }function b(){var m=$(this);
 var l=m.data("location");
-$(".loca-selectedPlaces").removeClass("loca-selectedPlaces");
-m.addClass("loca-selectedPlaces");
-$(".loca-infoContenido").empty().append(h.render(l.place));
+$(".myplaces-selectedPlaces").removeClass("myplaces-selectedPlaces");
+m.addClass("myplaces-selectedPlaces");
+$(".myplaces-infoContenido").empty().append(h.render(l.place));
 somospnt.util.ui.map.highlightPlace(l);
 f()
-}function g(l){var n=$(".loca-selectedPlaces").data("location");
-var o=$(".loca-placesList ul");
+}function g(l){var n=$(".myplaces-selectedPlaces").data("location");
+var o=$(".myplaces-placesList ul");
 o.empty();
 if(l.length){for(var m=0;
 m<l.length;
 m++){o.append($(d.render(l[m].place)).addClass(k+l[m].place.id).data("location",l[m]))
-}}else{o.append('<p class="loca-info-results">No results to display in this area</p>')
-}if(n){$("."+k+n.place.id).addClass("loca-selectedPlaces")
+}}else{o.append('<p class="myplaces-info-results">No results to display in this area</p>')
+}if(n){$("."+k+n.place.id).addClass("myplaces-selectedPlaces")
 }a()
 }function i(l){$("."+k+l).click()
-}function e(){return $(".loca-selectedPlaces").data("location")
-}function c(){$(".loca-selectedPlaces").removeClass("loca-selectedPlaces");
-$(".loca-infoContenido").empty().append('<p class="loca-info-results">To see the details of a place please click on it.</p>')
+}function e(){return $(".myplaces-selectedPlaces").data("location")
+}function c(){$(".myplaces-selectedPlaces").removeClass("myplaces-selectedPlaces");
+$(".myplaces-infoContenido").empty().append('<p class="myplaces-info-results">To see the details of a place please click on it.</p>')
 }return{init:j,showLocations:g,selecteById:i,getSelectedLocation:e,unselect:c}
 })();
 somospnt.util.ui.searcher=(function(){var c,b,e;
 function f(h){var g={componentRestrictions:{country:h}};
 e=new google.maps.Geocoder(g);
-b=$(".loca-searcher-input").get(0);
+b=$(".myplaces-searcher-input").get(0);
 c=new google.maps.places.Autocomplete(b,g);
-$(".loca-buscar").on("click",d);
-$(".loca-searcher input").on("keypress",function(j){var i=j.charCode?j.charCode:j.keyCode;
+$(".myplaces-buscar").on("click",d);
+$(".myplaces-searcher input").on("keypress",function(j){var i=j.charCode?j.charCode:j.keyCode;
 if(i===13){d()
 }});
 google.maps.event.addListener(c,"place_changed",a)
@@ -144,16 +144,16 @@ var g=c.getPlace();
 if(!g.geometry){b.className="notfound";
 return
 }somospnt.util.ui.map.focusOnGooglePlace(g)
-}function d(){var g=$(".loca-searcher input").val();
+}function d(){var g=$(".myplaces-searcher input").val();
 e.geocode({address:g},function(i,h){if(h===google.maps.GeocoderStatus.OK){i[0].name=i[0].name||g;
 somospnt.util.ui.map.focusOnGooglePlace(i[0])
 }})
 }return{init:f}
 })();
-(function(a){a.fn.extend({loca:function(c){var d=this;
+(function(a){a.fn.extend({myplaces:function(c){var d=this;
 var b={places:[],country:"AR",placeListTemplate:"<li>Enter a template for the list of places</li>",placeInfoTemplate:"<div>Enter a template for the information of the place</div>",popUpMapTemplate:"<div>Enter a template for the pop-up of the place</div>",onLoad:function(){},onPlacesChange:function(){},onClickPlace:function(){}};
 a.extend(b,c);
-var e='<div class="loca-searcher"><input class="loca-searcher-input" type="text" /><ul><li class="loca-buscar">Search</li></ul></div><ul class="loca-categories"></ul><div class="loca-places"><div class="loca-placesList"><ul></ul></div><div class="loca-placeInfo"><div class="loca-infoContenido"></div></div></div><div class="loca-map"></div>';
+var e='<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">Search</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
 a(d).append(e);
 somospnt.util.ui.places.init(b.placeListTemplate,b.placeInfoTemplate,b.onPlacesChange,b.onClickPlace);
 somospnt.util.ui.map.init(b.places,b.popUpMapTemplate);

@@ -16,7 +16,7 @@ somospnt.util.ui.map = (function() {
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
-        map = new google.maps.Map($('.loca-map').get(0), options);
+        map = new google.maps.Map($('.myplaces-map').get(0), options);
         infowindow = new google.maps.InfoWindow();
 
         marker = new google.maps.Marker({
@@ -137,7 +137,7 @@ somospnt.util.ui.map = (function() {
             ].join(' ');
         }
 
-        infowindow.setContent('<div class="loca-info"><strong>' + googlePlace.name + '</strong><br>' + address);
+        infowindow.setContent('<div class="myplaces-info"><strong>' + googlePlace.name + '</strong><br>' + address);
         infowindow.open(map, marker);
 
     }

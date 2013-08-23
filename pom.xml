@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.connectis</groupId>
-    <artifactId>localizacion</artifactId>
+    <groupId>com.somospnt</groupId>
+    <artifactId>jquery.myplaces</artifactId>
     <version>1.0</version>
-    <name>Localizacion</name>
+    <name>myplaces</name>
     
     <build>
         <plugins>
@@ -47,32 +47,7 @@
                     <haltOnFailure>false</haltOnFailure>
                 </configuration>
             </plugin>
-<!--
-            <plugin>
-                <groupId>com.github.timurstrekalov</groupId>
-                <artifactId>saga-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                
-                <executions>
-                    <execution>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>coverage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <baseDir>http://localhost:${jasmine.serverPort}</baseDir>
-                    <outputDir>${project.build.directory}/site/jasmine</outputDir>
-                    <noInstrumentPatterns>
-                        <pattern>.*/spec/app/.*</pattern>
-                        <pattern>.*/src/lib/.*</pattern>
-                        <pattern>.*/src/ui/.*</pattern>
-                        <pattern>.*/src/app/service/.*</pattern>
-                    </noInstrumentPatterns>
-                </configuration>
-            </plugin>
-	 -->   
+			
             <plugin>
                 <groupId>com.googlecode.jslint4java</groupId>
                 <artifactId>jslint4java-maven-plugin</artifactId>
@@ -91,7 +66,7 @@
                                 <bitwise>true</bitwise>
                                 <debug>false</debug>
                                 <eqeq>false</eqeq>
-                                Para prohibir el uso de logueo con: console; alert; etc.
+                                <!--To prohibit the use of logging with: console, alert, etc.-->
                                 <devel>false</devel>
                                 <es5>true</es5>
                                 <nomen>false</nomen>
@@ -103,10 +78,10 @@
                                 <sloppy>true</sloppy>
                                 <evil>true</evil>
                                 <plusplus>true</plusplus>
-                                Para que no tome la variable "document" como indefinida.
+                                <!--To not take the variable "document" as indefinite.-->
                                 <browser>true</browser>
-                                Indicamos las variables globales que usamos.
-                                <predef>$,loca</predef>
+                                <!--We indicate the global variables we use.-->
+                                <predef>$,myplaces</predef>
                             </options>
                             <includes>
                                 <include>/app/util/**</include>
@@ -135,14 +110,14 @@
                     <aggregations>
                         <aggregation>
                             <insertNewLine>true</insertNewLine>
-                            <output>${basedir}/public_html/dist/localizacion.min.js</output>
+                            <output>${basedir}/public_html/dist/jquery.myplaces.min-${version}.js</output>
                             <inputDir>${basedir}/target/javascripts</inputDir>
                             <includes>
                                 <include>somospnt.js</include>
                                 <include>util/util.js</include>
                                 <include>util/ui/ui.js</include>
                                 <include>util/ui/**/*.js</include>
-                                <include>plugin/loca.js</include>
+                                <include>plugin/myplaces.js</include>
                             </includes>
                         </aggregation>
                     </aggregations>

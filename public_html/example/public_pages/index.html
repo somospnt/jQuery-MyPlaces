@@ -3,15 +3,13 @@
     <head>
         <title>Localizacion</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="../css/webfontkit/webFonts.css" type="text/css" rel="stylesheet">
         <link href="../js/lib/myCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
-        <link href="../css/localizacion.css" type="text/css" rel="stylesheet">
+        <link href="../css/myplaces.css" type="text/css" rel="stylesheet">
         <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
     </head>
     <body>
-        <h1>Localización</h1>
+        <h1>Jquery.MyPlaces Example</h1>
 
         <div class="container">
         </div>
@@ -26,7 +24,7 @@
 
         <!--Plugin-->
 
-        <script type="text/javascript" src="../../dist/localizacion.min.js"></script>
+        <script type="text/javascript" src="../../dist/jquery.myplaces.min-1.0.js"></script>
 
         <!-- Plugin source
         <script type="text/javascript" src="../../src/js/app/somospnt.js"></script>
@@ -66,7 +64,7 @@
                     }
                 ];
 
-                $(".container").loca({
+                $(".container").myplaces({
                     pais: "AR",
                     places: places,
                     placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
@@ -79,7 +77,7 @@
 
                 function createSrollBar() {
 
-                    $(".loca-placesList, .loca-placeInfo").mCustomScrollbar({
+                    $(".myplaces-placesList, .myplaces-placeInfo").mCustomScrollbar({
                         theme: "dark-thick",
                         advanced: {
                             updateOnContentResize: true
@@ -101,7 +99,7 @@
             </ul>
             <h3>{{:state}}</h3>
             <p>{{:longDescription}}</p>
-            <div class="loca-placeEmail">
+            <div class="myplaces-placeEmail">
             <h3>Address:</h3>
             <p>{{:address}}</p>
             </div>
@@ -109,7 +107,7 @@
 
 
         <script id="infowindowTemplate" type="text/x-jsrender">
-            <div class="loca-info">
+            <div class="myplaces-info">
             <strong> 
             {{:name}}
             </strong>

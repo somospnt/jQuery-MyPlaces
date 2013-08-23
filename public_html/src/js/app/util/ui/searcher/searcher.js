@@ -10,12 +10,12 @@ somospnt.util.ui.searcher = (function() {
 
         geocoder = new google.maps.Geocoder(options);
 
-        inputAutocomplete = $('.loca-searcher-input').get(0);
+        inputAutocomplete = $('.myplaces-searcher-input').get(0);
         autocomplete = new google.maps.places.Autocomplete(inputAutocomplete, options);
 
-        $('.loca-buscar').on('click', searchBySearcher);
+        $('.myplaces-buscar').on('click', searchBySearcher);
 
-        $('.loca-searcher input').on('keypress', function(e) {
+        $('.myplaces-searcher input').on('keypress', function(e) {
             var key = e.charCode ? e.charCode : e.keyCode;
             if (key === 13) {
                 searchBySearcher();
@@ -43,7 +43,7 @@ somospnt.util.ui.searcher = (function() {
     }
 
     function searchBySearcher() {
-        var placeToFind = $(".loca-searcher input").val();
+        var placeToFind = $(".myplaces-searcher input").val();
 
         geocoder.geocode({'address': placeToFind}, function(places, status) {
             if (status === google.maps.GeocoderStatus.OK) {

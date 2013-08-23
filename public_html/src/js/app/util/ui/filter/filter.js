@@ -4,15 +4,15 @@ somospnt.util.ui.filter = (function() {
 
     function init(places) {
 
-        filterTemplate = $.templates('<li class="loca-category"><label class="loca-check" for="{{:#data}}">{{:#data}}<input type="checkbox" id="{{:#data}}" /></label></li>');
+        filterTemplate = $.templates('<li class="myplaces-category"><label class="myplaces-check" for="{{:#data}}">{{:#data}}<input type="checkbox" id="{{:#data}}" /></label></li>');
         addFilters(places);
-        $('.loca-category').on('click', changeFilter);
+        $('.myplaces-category').on('click', changeFilter);
     }
 
     function addFilters(places) {
 
         var filters = getFilters(places);
-        $('.loca-categories').append(filterTemplate.render(filters));
+        $('.myplaces-categories').append(filterTemplate.render(filters));
 
     }
 
@@ -38,11 +38,11 @@ somospnt.util.ui.filter = (function() {
 
         var filters = [];
 
-        $('.loca-check').removeClass('loca-check-on');
-        $('.loca-check input[type=checkbox]:checked').each(
+        $('.myplaces-check').removeClass('myplaces-check-on');
+        $('.myplaces-check input[type=checkbox]:checked').each(
                 function(index, element) {
                     filters.push($(element).attr('id'));
-                    $(element).parent('label').addClass('loca-check-on');
+                    $(element).parent('label').addClass('myplaces-check-on');
                 });
 
         somospnt.util.ui.map.filterLocations(filters);

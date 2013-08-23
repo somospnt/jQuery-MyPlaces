@@ -1,6 +1,6 @@
 somospnt.util.ui.places = (function() {
     var placeListTemplate, placeInfoTemplate;
-    var placeClass = "loca-establecimiento-";
+    var placeClass = "myplaces-establecimiento-";
     var placesChangeCallback, clickPlaceCallback;
 
     function init(listTemplate, infoTemplate, placesChange, clickPlace) {
@@ -8,17 +8,17 @@ somospnt.util.ui.places = (function() {
         placeInfoTemplate = $.templates(infoTemplate);
         placesChangeCallback = placesChange;
         clickPlaceCallback = clickPlace;
-        $('.loca-placesList ul').on('click', 'li', showInformationOfPlace);
-        $('.loca-infoContenido').append('<p class="loca-info-results">To see the details of a place please click on it.</p>');
+        $('.myplaces-placesList ul').on('click', 'li', showInformationOfPlace);
+        $('.myplaces-infoContenido').append('<p class="myplaces-info-results">To see the details of a place please click on it.</p>');
     }
 
 
     function showInformationOfPlace() {
         var placeLi = $(this);
         var location = placeLi.data("location");
-        $('.loca-selectedPlaces').removeClass('loca-selectedPlaces');
-        placeLi.addClass('loca-selectedPlaces');
-        $('.loca-infoContenido').empty().append(placeInfoTemplate.render(location.place));
+        $('.myplaces-selectedPlaces').removeClass('myplaces-selectedPlaces');
+        placeLi.addClass('myplaces-selectedPlaces');
+        $('.myplaces-infoContenido').empty().append(placeInfoTemplate.render(location.place));
         somospnt.util.ui.map.highlightPlace(location);
 
         clickPlaceCallback();
@@ -26,9 +26,9 @@ somospnt.util.ui.places = (function() {
 
     function showLocations(locations) {
 
-        var selectedLocation = $('.loca-selectedPlaces').data("location");
+        var selectedLocation = $('.myplaces-selectedPlaces').data("location");
 
-        var placeUl = $('.loca-placesList ul');
+        var placeUl = $('.myplaces-placesList ul');
 
         placeUl.empty();
 
@@ -42,11 +42,11 @@ somospnt.util.ui.places = (function() {
                         );
             }
         } else {
-            placeUl.append('<p class="loca-info-results">No results to display in this area</p>');
+            placeUl.append('<p class="myplaces-info-results">No results to display in this area</p>');
         }
 
         if (selectedLocation) {
-            $("." + placeClass + selectedLocation.place.id).addClass('loca-selectedPlaces');
+            $("." + placeClass + selectedLocation.place.id).addClass('myplaces-selectedPlaces');
         }
 
         placesChangeCallback();
@@ -58,12 +58,12 @@ somospnt.util.ui.places = (function() {
 
 
     function getSelectedLocation() {
-        return $('.loca-selectedPlaces').data("location");
+        return $('.myplaces-selectedPlaces').data("location");
     }
 
     function unselect() {
-        $('.loca-selectedPlaces').removeClass("loca-selectedPlaces");
-        $('.loca-infoContenido').empty().append('<p class="loca-info-results">To see the details of a place please click on it.</p>');
+        $('.myplaces-selectedPlaces').removeClass("myplaces-selectedPlaces");
+        $('.myplaces-infoContenido').empty().append('<p class="myplaces-info-results">To see the details of a place please click on it.</p>');
     }
 
     return {
