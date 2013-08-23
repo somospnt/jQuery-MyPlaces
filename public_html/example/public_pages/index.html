@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Localizacion</title>
+        <title>Jquery.MyPlaces Example</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="../js/lib/myCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
         <link href="../css/myplaces.css" type="text/css" rel="stylesheet">
@@ -46,7 +46,7 @@
                     {
                         "name": "My House",
                         "mapIcon": "http://r-ec.bstatic.com/images/hotel/square40/146/14694220.jpg",
-                        "lat": -34.6290944,
+                        "lat": -34.6390944,
                         "lng": -58.389152,
                         "tags": ["House", "Good Place"]
                     },
@@ -58,14 +58,14 @@
                         "shortDescription": "The Simpsons house",
                         "longDescription": "The Simpsons House was designed by Kaufman and Broad homebuilders",
                         "mapIcon": "https://si0.twimg.com/profile_images/3663934134/d2b2a7fcacec55ba63c06474d10de385_normal.jpeg",
-                        "lat": -34.6190943,
+                        "lat": -34.6090943,
                         "lng": -58.389159,
                         "tags": ["Simpsons", "House"]
                     }
                 ];
 
                 $(".container").myplaces({
-                    pais: "AR",
+                    country: "AR",
                     places: places,
                     placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
                     placeInfoTemplate: '#placeInfoTemplate',
