@@ -1,4 +1,4 @@
-#jQuery Places
+#jQuery MyPlaces
 
 ##Description
 jQuery Places uses Google Maps API (v.3) to locate and display a set of determined places on the map.
@@ -17,7 +17,7 @@ It allows:
 Include the minified plugin JS file:
 
 ```html
-<script type="text/javascript" src="../../dist/localizacion.min.js"></script>
+<script type="text/javascript" src="../../dist/jquery.myplaces.min-1.0.js"></script>
 ```
 
 Or include all the plugin JS files:
@@ -38,7 +38,7 @@ Or include all the plugin JS files:
 Add the CSS file (or append contents to your own stylesheet):
 
 ```html
-<link href="../css/localizacion.css" type="text/css" rel="stylesheet">
+<link href="../css/myplaces.css" type="text/css" rel="stylesheet">
 ```
 
 Add the container:
@@ -54,7 +54,7 @@ var places = [
     {
         "name": "My House",
         "mapIcon": "http://r-ec.bstatic.com/images/hotel/square40/146/14694220.jpg",
-        "lat": -34.6290944,
+        "lat": -34.6390944,
         "lng": -58.389152,
         "tags": ["House", "Good Place"]
     },
@@ -66,7 +66,7 @@ var places = [
         "shortDescription": "The Simpsons house",
         "longDescription": "The Simpsons House was designed by Kaufman and Broad homebuilders",
         "mapIcon": "https://si0.twimg.com/profile_images/3663934134/d2b2a7fcacec55ba63c06474d10de385_normal.jpeg",
-        "lat": -34.6190943,
+        "lat": -34.6090943,
         "lng": -58.389159,
         "tags": ["Simpsons", "House"]
     }
@@ -74,10 +74,10 @@ var places = [
 
 
 // default
-$('.container').loca();
+$('.container').myplaces({places: places});
 
 // or with custom settings
-$('.container').loca({
+$('.container').myplaces({
     places: places,
     country: 'AR',
     onLoad: function() {

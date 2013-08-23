@@ -22,43 +22,43 @@ $(h).parent("label").addClass("myplaces-check-on")
 somospnt.util.ui.map.filterLocations(f)
 }return{init:d}
 })();
-somospnt.util.ui.map=(function(){var c,h,i,e;
+somospnt.util.ui.map=(function(){var d,h,i,f;
 var k=[];
-function p(q,r){e=$.templates(r);
+function p(q,r){f=$.templates(r);
 n();
 g(q)
 }function n(){var q={zoom:12,center:new google.maps.LatLng(-34.6090944,-58.389152),mapTypeId:google.maps.MapTypeId.ROADMAP};
-c=new google.maps.Map($(".myplaces-map").get(0),q);
+d=new google.maps.Map($(".myplaces-map").get(0),q);
 h=new google.maps.InfoWindow();
-i=new google.maps.Marker({map:c});
-google.maps.event.addListener(c,"idle",b)
+i=new google.maps.Marker({map:d});
+google.maps.event.addListener(d,"idle",c)
 }function g(q){for(var r=0;
 r<q.length;
 r++){(function(){var s={};
 s.place=q[r];
 s.place.id=r;
-s.marker=new google.maps.Marker({position:new google.maps.LatLng(q[r].lat,q[r].lng),map:c,title:q[r].name,icon:q[r].mapIcon});
+s.marker=new google.maps.Marker({position:new google.maps.LatLng(q[r].lat,q[r].lng),map:d,title:q[r].name,icon:q[r].mapIcon});
 k.push(s);
 google.maps.event.addListener(s.marker,"click",function(){somospnt.util.ui.places.selecteById(s.place.id)
 })
 })()
-}}function b(){var r=a();
+}}function c(){var r=a();
 var q=somospnt.util.ui.places.getSelectedLocation();
 if(q&&$.inArray(q,r)===-1){r.unshift(q)
 }somospnt.util.ui.places.showLocations(r)
-}function f(){var r=a();
+}function b(){var r=a();
 var q=somospnt.util.ui.places.getSelectedLocation();
 if(q&&$.inArray(q,r)===-1){q.infowindow=null;
 h.close();
 somospnt.util.ui.places.unselect()
 }somospnt.util.ui.places.showLocations(r)
 }function a(){var s=[];
-var r=c.getBounds();
+var r=d.getBounds();
 for(var q=0;
 q<k.length;
 q++){if(k[q].marker.getVisible()&&r.contains(k[q].marker.getPosition())){s.push(k[q])
-}}return d(s)
-}function d(r){var q=c.getCenter();
+}}return e(s)
+}function e(r){var q=d.getCenter();
 for(var s=0;
 s<r.length;
 s++){r[s].distanceToCenter=google.maps.geometry.spherical.computeDistanceBetween(r[s].marker.getPosition(),q)
@@ -67,15 +67,15 @@ s++){r[s].distanceToCenter=google.maps.geometry.spherical.computeDistanceBetween
 }function m(r){somospnt.util.ui.places.unselect();
 h.close();
 i.setVisible(false);
-if(r.geometry.viewport){c.fitBounds(r.geometry.viewport)
-}else{c.setCenter(r.geometry.location);
-c.setZoom(17)
+if(r.geometry.viewport){d.fitBounds(r.geometry.viewport)
+}else{d.setCenter(r.geometry.location);
+d.setZoom(17)
 }i.setPosition(r.geometry.location);
 i.setVisible(true);
 var q="";
 if(r.address_components){q=[(r.address_components[0]&&r.address_components[0].short_name||""),(r.address_components[1]&&r.address_components[1].short_name||""),(r.address_components[2]&&r.address_components[2].short_name||"")].join(" ")
 }h.setContent('<div class="myplaces-info"><strong>'+r.name+"</strong><br>"+q);
-h.open(c,i)
+h.open(d,i)
 }function l(u){j(k,true);
 if(u.length){var r=[];
 for(var t=0;
@@ -89,12 +89,12 @@ for(var t=0;
 t<k.length;
 t++){if($.inArray(k[t],r)===-1){q.push(k[t])
 }}j(q,false)
-}f()
+}b()
 }function j(q,s){for(var r=0;
 r<q.length;
 r++){q[r].marker.setVisible(s)
-}}function o(q){h.setContent(e.render(q.place));
-h.open(c,q.marker);
+}}function o(q){h.setContent(f.render(q.place));
+h.open(d,q.marker);
 q.infowindow=h
 }return{init:p,focusOnGooglePlace:m,filterLocations:l,highlightPlace:o}
 })();
