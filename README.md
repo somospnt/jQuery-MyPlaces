@@ -4,6 +4,7 @@
 jQuery MyPlaces uses Google Maps API (v.3) to locate and display a set of determined places on the map.
 
 It allows:
+
 * To locate an address on the map and display the nearby determined places.
 * Show customized information about the location.
 * To define the template for customizing user interface (maps, search bar, location information)
