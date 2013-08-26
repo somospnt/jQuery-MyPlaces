@@ -1,7 +1,7 @@
 #jQuery MyPlaces
 
 ##Description
-jQuery Places uses Google Maps API (v.3) to locate and display a set of determined places on the map.
+jQuery MyPlaces uses Google Maps API (v.3) to locate and display a set of determined places on the map.
 
 It allows:
 * To locate an address on the map and display the nearby determined places.
@@ -11,8 +11,7 @@ It allows:
 ##Requirements
 * jQuery v. 1.10+
 * JsRender
-* Google Places JavaScript library
-* google-docs-simple-parser
+
 
 ## Getting Started
 
