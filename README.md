@@ -11,6 +11,8 @@ It allows:
 ##Requirements
 * jQuery v. 1.10+
 * JsRender
+* Google Places JavaScript library
+* google-docs-simple-parser
 
 ## Getting Started
 
