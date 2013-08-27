@@ -1,0 +1,30 @@
+{
+  "name": "myplaces",
+  "version": "1.0.0",
+  "title": "Jquery.MyPlaces",
+  "description": "jQuery MyPlaces uses Google Maps API (v.3) to locate and display a set of determined places on the map.",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "autocomplete",
+    "autosuggest",
+    "search",
+    "google",
+    "maps",
+	"localization"
+  ],
+  "author": {
+    "name": "somospnt",
+    "url": "http://www.somospnt.com/"
+  },
+  "licenses": [
+    {
+      "type": "MPL",
+      "url": "http://mozilla.org/MPL/2.0/"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.10",
+    "JsRender": ">=1.0"
+  }
+}
