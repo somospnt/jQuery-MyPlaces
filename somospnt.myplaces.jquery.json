@@ -1,5 +1,5 @@
 {
-  "name": "myplaces",
+  "name": "somospnt.myplaces",
   "version": "1.0.0",
   "title": "jQuery MyPlaces",
   "description": "jQuery MyPlaces uses Google Maps API (v.3) to locate and display a set of determined places on the map.",

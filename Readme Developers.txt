@@ -1,4 +1,5 @@
-Before any operation to the repository you should edit the config file (from the git folder) and replace the contents of [remote "origin"]
+Before any operation to the repository you must to edit the config 
+file (from the .git hided folder) and replace the contents of [remote "origin"]
 
 [remote "origin"]
 	url = https://github.com/somospnt/jQuery-MyPlaces.git
