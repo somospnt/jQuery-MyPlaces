@@ -107,10 +107,11 @@ $('.container').myplaces({
 | ---------------|:-------------:|
 |lat| location latitude |
 |lng| location longitude|
-|iconoMapa| icon that represent the place in the map |
-|nombre| place name|
+|mapIcon| icon that represent the place in the map |
+|name| place name|
 |tags| to categorized places|
 
 
 ## License
 Mozilla Public License Version 2.0
+http://www.mozilla.org/MPL/2.0/
