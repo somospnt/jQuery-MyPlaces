@@ -1,67 +1,123 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <head>
+        <title>Jquery.MyPlaces Example</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="js/lib/myCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+        <link href="css/myplaces.css" type="text/css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Patua+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <h1>Jquery.MyPlaces Example</h1>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <div class="container">
+        </div>
+        <!--Libraries-->
+        <script type="text/javascript" src="js/lib/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="js/lib/jsRender/jsrender.min.js"></script>
+        <script type="text/javascript" src="js/lib/google-docs-simple-parser/google-docs-simple-parser.js"></script>
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?libraries=places,geometry&sensor=false"></script>
 
-    <title>Jquery-myplaces by somospnt</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Jquery-myplaces</h1>
-        <h2></h2>
-        <a href="https://github.com/somospnt/jQuery-MyPlaces" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
+        <script src="js/lib/myCustomScrollbar/jquery.mCustomScrollbar.min.js"></script>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
-<a name="jquery-myplaces" class="anchor" href="#jquery-myplaces"><span class="octicon octicon-link"></span></a>jQuery MyPlaces</h1>
+        <!--Plugin-->
 
-<h2>
-<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+        <script type="text/javascript" src="js/jquery.myplaces.min-1.0.js"></script>
 
-<p>jQuery MyPlaces uses Google Maps API (v.3) to locate and display a set of determined places on the map.</p>
+        <!-- Plugin source
+        <script type="text/javascript" src="../../src/js/app/somospnt.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/util.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/ui/ui.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/ui/map/map.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/ui/places/places.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/ui/searcher/searcher.js"></script>
+        <script type="text/javascript" src="../../src/js/app/util/ui/filter/filter.js"></script>
+        <script type="text/javascript" src="../../src/js/app/plugin/loca.js"></script>
+        -->
+        <!--Js of page-->
+        <script>
 
-<p>It allows:</p>
 
-<ul>
-<li>To locate an address on the map and display the nearby determined places.</li>
-<li>Show customized information about the location.</li>
-<li>To define the template for customizing user interface (maps, search bar, location information)</li>
-</ul>
-        </section>
+            $(document).ready(function() {
 
-        <aside id="sidebar">
-          <a href="https://github.com/somospnt/jQuery-MyPlaces/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/somospnt/jQuery-MyPlaces/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+                var places = [
+                    {
+                        "name": "My House",
+                        "mapIcon": "img/home.png",
+                        "lat": -34.6390944,
+                        "lng": -58.389152,
+                        "tags": ["House", "Good Place"]
+                    },
+                    {
+                        "id": "1",
+                        "name": "The Simpsons house",
+                        "address": "742 Evergreen Terrace",
+                        "state": "Springfield",
+                        "shortDescription": "The Simpsons house",
+                        "longDescription": "The Simpsons House was designed by Kaufman and Broad homebuilders",
+                        "mapIcon": "img/Home-icon.png",
+                        "lat": -34.6090943,
+                        "lng": -58.389159,
+                        "tags": ["Simpsons", "House"]
+                    }
+                ];
 
-          <p class="repo-owner"><a href="https://github.com/somospnt/jQuery-MyPlaces"></a> is maintained by <a href="https://github.com/somospnt">somospnt</a>.</p>
+                $(".container").myplaces({
+                    country: "AR",
+                    places: places,
+                    placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
+                    placeInfoTemplate: '#placeInfoTemplate',
+                    popUpMapTemplate: '#infowindowTemplate',
+                    onLoad: createSrollBar
+                            //onPlacesChange: callback,
+                            //onClickPlace: callback
+                });
 
-          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+                function createSrollBar() {
 
-  
-  </body>
+                    $(".myplaces-placesList, .myplaces-placeInfo").mCustomScrollbar({
+                        theme: "dark-thick",
+                        advanced: {
+                            updateOnContentResize: true
+                        }
+                    });
+
+                }
+            });
+        </script>
+
+        <script id="placeInfoTemplate" type="text/x-jsrender">
+            <h3>Name:</h3>
+            <p>{{:name}}</p>
+            <h3>Activities:</h3>
+            <ul>
+            {{for tags}}
+            <li>{{:#data}}</li>
+            {{/for}}
+            </ul>
+            <h3>{{:state}}</h3>
+            <p>{{:longDescription}}</p>
+            <div class="myplaces-placeEmail">
+            <h3>Address:</h3>
+            <p>{{:address}}</p>
+            </div>
+        </script>
+
+
+        <script id="infowindowTemplate" type="text/x-jsrender">
+            <div class="myplaces-info">
+            <strong> 
+            {{:name}}
+            </strong>
+            <br> 
+            {{:address}}
+            </div>
+        </script>
+    </body>
 </html>
