@@ -1,0 +1,324 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/************************************
+ * Index
+************************************/
+
+h1 {
+    font-family: 'Patua One', cursive;
+    height: 100%;
+    width: 50%;
+    font-size: 18px;
+    text-align: center;
+    margin: 0 0 0 15%;
+    text-align: left;
+    color: #005F82;
+}
+
+.container {
+    width: 1000px;
+    height: 800px;
+    margin: auto;
+}
+
+/************************************
+ * Buscador
+************************************/
+.myplaces-searcher {
+    width: 100%;
+    margin: 30px 0;
+}
+
+.myplaces-searcher ul, .myplaces-searcher input{
+    display: inline;
+    width: 50%;
+}
+
+.myplaces-searcher input{
+    height: 30px;
+}
+
+.myplaces-searcher ul{
+    display: inline;
+    height: 30px;
+}
+
+.myplaces-searcher ul>li {
+    display: inline;
+    -webkit-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+    -moz-box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+    box-shadow:rgba(0,0,0,0.2) 0 1px 0 0;
+    color:#fff;
+    font-weight:700;
+    height:32px;
+    padding:4px 16px;
+    text-shadow:gray 0 1px 0;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    background: #136285; /* Old browsers */
+    background: -moz-linear-gradient(top,  #136285 0%, #0c7b9c 50%, #0e688b 51%, #169dbd 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#136285), color-stop(50%,#0c7b9c), color-stop(51%,#0e688b), color-stop(100%,#169dbd)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #136285 0%,#0c7b9c 50%,#0e688b 51%,#169dbd 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #136285 0%,#0c7b9c 50%,#0e688b 51%,#169dbd 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #136285 0%,#0c7b9c 50%,#0e688b 51%,#169dbd 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #136285 0%,#0c7b9c 50%,#0e688b 51%,#169dbd 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#136285', endColorstr='#169dbd',GradientType=0 ); /* IE6-9 */
+    border: 1px solid #0184B3;
+    font-family: 'Open Sans', sans-serif;
+    font-size:16px;
+    height:32px;
+    padding:4px 16px;
+    text-shadow:gray 0 1px 0;
+    cursor: pointer;
+}
+
+.myplaces-searcher ul>li:hover {
+    border: solid 1px black;
+    background-color: #cadfaa;
+
+}
+
+/************************************
+ * Establecimientos
+************************************/
+.myplaces-places {
+    border: 1px solid #D6EBE7;
+    border-radius: 4px 4px 4px 4px;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    height: 500px;
+    vertical-align: top;
+    width: 50%;
+}
+
+.myplaces-placesList {
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    height: 500px;
+    overflow: auto;
+    width: 40%;
+}
+
+.myplaces-placesList  ul  {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.myplaces-placesList  ul > li {
+    background-color: #EFF3F7;
+    border-bottom: 1px solid #DEE7E7;
+    list-style: none outside none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.myplaces-placesList  ul > li:hover {
+    background-color: #E0E3E5;
+}
+
+.myplaces-placesList  ul > li.myplaces-selectedPlaces {
+    background-color: #FFFFFF;
+}
+
+.myplaces-placesList  ul > li > h1{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    margin: 0 0 0 10px;
+    color: #00507C;
+    text-align: left;
+    text-shadow: none;
+    padding: 10px 0 0;
+}
+.myplaces-placesList  ul > li > h3{
+    font-size: 12px;
+    margin: 0 0 0 10px;
+}
+.myplaces-placesList  ul > li > h5{
+    margin: 0 0 0 10px;
+    font-size: 11px;
+}
+.myplaces-placesList  ul > li > p{
+    margin: 0 0 0 10px;
+    font-size: 11px;
+    padding: 0 0 8px;
+}
+
+.myplaces-placeInfo {
+    border-left: 1px solid #D6EBE7;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    overflow: auto;
+    height: 500px;
+    margin: 0;
+    vertical-align: top;
+    width: 59.8%;
+}
+
+.myplaces-placeInfo  h3{
+    font-size: 13px;
+    margin: 13% 15px 0 15px;
+}
+
+.myplaces-placeInfo  p{
+    font-size: 13px;
+    margin: 0 15px 0 15px;
+}
+
+.myplaces-placeInfo  ul{
+    font-size: 13px;
+    margin: 0;
+    margin: 0 15px 0 15px;
+}
+.myplaces-placeInfo  ul > li {
+    background: url("../img/flicon.gif") no-repeat scroll 0 7px transparent;
+    list-style: none outside none;
+    margin-left: 10px;
+    padding: 0 0 0 10px;
+}
+.myplaces-placeInfo .myplaces-placeEmail {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.myplaces-placeInfo .myplaces-placeEmail > h3 {
+    display: inline;
+    font-size: 12px;
+    margin: 0 15px 0 15px;
+}
+.myplaces-placeInfo .myplaces-placeEmail > p {
+    color: #8CBEE7;
+    display: inline;
+    font-size: 13px;
+}
+
+/************************************
+ * Mapa
+************************************/
+.myplaces-map {
+    display: inline-block;
+    width: 49%;
+    height: 500px;
+    border: 1px solid gray;
+}
+
+/************************************
+ * Categories
+************************************/
+.myplaces-categories {
+    list-style: none;
+    padding: 0;
+}
+
+.myplaces-category {
+    color: #0084c7;
+    display:inline;
+    font-size:15px;
+    font-weight:400;
+    padding:7px;
+    margin: 0 1px;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif;
+    -moz-box-shadow: -1px 3px 11px #fcfefd;
+    -webkit-box-shadow: -1px 3px 11px #fcfefd;
+    box-shadow: -1px 3px 11px #fcfefd;
+    border-left: 1px solid #cee2e0;
+}
+
+.myplaces-category:nth-child(1) {
+    border-left: 0;
+}
+
+.myplaces-category:hover {
+    color: #0E6C8F;
+    text-shadow:2px 0px 10px #0084c7;
+}
+
+.myplaces-category.active {
+    color: #0E6C8F;
+}
+
+.myplaces-category label {
+    margin: 0 0 0 5px;
+}
+
+.myplaces-category label:hover {
+    cursor: pointer;
+}
+
+.myplaces-check{ padding-left: 25px; margin-left: 10px}
+.myplaces-check { background: url(../img/check-off.png) no-repeat; }
+.myplaces-check-on { background: url(../img/check-on.png) no-repeat; }
+.myplaces-check input{ position: absolute; left: -9999px; }
+
+/*****************************************************
+* Info
+*****************************************************/
+.myplaces-info {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p.myplaces-info-results {
+    color: #0084c7;
+    font-family: 'Open Sans', sans-serif;
+    margin: 25px;
+    text-align: center;
+}
+
+
+/*****************************************************
+* Scroll
+*****************************************************/
+/*dark-thick*/
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_draggerRail{
+    width:6px;
+    background:#FFFFFF; 
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+    border: 1px solid #DEEBE7;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    width:6px;
+    background:#0082C6; 
+    -webkit-border-radius:2px;
+    -moz-border-radius:2px;
+    border-radius:2px;
+}
+.mCS-dark-thick.mCSB_horizontal>.mCSB_scrollTools .mCSB_draggerRail{
+    width:100%;
+    height:4px;
+    margin:6px 0;
+}
+.mCS-dark-thick.mCSB_horizontal>.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{
+    width:100%;
+    height:6px;
+    margin:5px auto;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar{
+    background:#0082C6;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar{
+    background:#0082C6;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_buttonUp{
+    background-position:-96px 0;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_buttonDown{
+    background-position:-96px -20px;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_buttonLeft{
+    background-position:-100px -40px;
+}
+.mCS-dark-thick>.mCSB_scrollTools .mCSB_buttonRight{
+    background-position:-100px -56px;
+}
+.mCustomScrollBox>.mCSB_scrollTools {
+    width: 9px;
+}
