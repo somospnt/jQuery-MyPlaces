@@ -19,12 +19,12 @@ h1 {
 
 .container {
     width: 1000px;
-    height: 800px;
+    height: 610px;
     margin: auto;
 }
 
 /************************************
- * Buscador
+ * Search
 ************************************/
 .myplaces-searcher {
     width: 100%;
@@ -82,7 +82,7 @@ h1 {
 }
 
 /************************************
- * Establecimientos
+ * Places
 ************************************/
 .myplaces-places {
     border: 1px solid #D6EBE7;
@@ -198,7 +198,7 @@ h1 {
 }
 
 /************************************
- * Mapa
+ * Map
 ************************************/
 .myplaces-map {
     display: inline-block;
