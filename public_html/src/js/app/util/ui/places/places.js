@@ -4,7 +4,7 @@
 
 somospnt.util.ui.places = (function() {
     var placeListTemplate, placeInfoTemplate;
-    var placeClass = "myplaces-establecimiento-";
+    var placeClass = "myplaces-place-";
     var placesChangeCallback, clickPlaceCallback;
 
     function init(listTemplate, infoTemplate, placesChange, clickPlace) {
