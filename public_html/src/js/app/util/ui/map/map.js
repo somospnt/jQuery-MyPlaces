@@ -33,12 +33,13 @@ somospnt.util.ui.map = (function() {
 
     function loadPlaces(places) {
 
+        locations = [];
         for (var i = 0; i < places.length; i++) {
 
             (function() {
                 var location = {};
                 location.place = places[i];
-                
+
                 location.place.id = i;
 
                 location.marker = new google.maps.Marker({

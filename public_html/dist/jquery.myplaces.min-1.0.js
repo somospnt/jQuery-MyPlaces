@@ -32,7 +32,8 @@ d=new google.maps.Map($(".myplaces-map").get(0),q);
 h=new google.maps.InfoWindow();
 i=new google.maps.Marker({map:d});
 google.maps.event.addListener(d,"idle",c)
-}function g(q){for(var r=0;
+}function g(q){k=[];
+for(var r=0;
 r<q.length;
 r++){(function(){var s={};
 s.place=q[r];
@@ -99,7 +100,7 @@ q.infowindow=h
 }return{init:p,focusOnGooglePlace:m,filterLocations:l,highlightPlace:o}
 })();
 somospnt.util.ui.places=(function(){var d,h;
-var k="myplaces-establecimiento-";
+var k="myplaces-place-";
 var a,f;
 function j(l,o,m,n){d=$.templates(l);
 h=$.templates(o);
