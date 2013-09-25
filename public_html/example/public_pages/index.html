@@ -24,8 +24,9 @@
     <body>
         <h1>Jquery.MyPlaces Example</h1>
 
-        <div class="container">
+        <div class="myplaces-container">
         </div>
+        
         <!--Libraries-->
         <script type="text/javascript" src="../js/lib/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="../js/lib/jsRender/jsrender.min.js"></script>
@@ -77,7 +78,7 @@
                     }
                 ];
 
-                $(".container").myplaces({
+                $(".myplaces-container").myplaces({
                     country: "AR",
                     places: places,
                     placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
@@ -87,7 +88,7 @@
                             //onPlacesChange: callback,
                             //onClickPlace: callback
                 });
-
+                
                 function createSrollBar() {
 
                     $(".myplaces-placesList, .myplaces-placeInfo").mCustomScrollbar({

@@ -154,12 +154,14 @@ somospnt.util.ui.map.focusOnGooglePlace(i[0])
 (function(a){a.fn.extend({myplaces:function(c){var d=this;
 var b={places:[],country:"AR",placeListTemplate:"<li>Enter a template for the list of places</li>",placeInfoTemplate:"<div>Enter a template for the information of the place</div>",popUpMapTemplate:"<div>Enter a template for the pop-up of the place</div>",onLoad:function(){},onPlacesChange:function(){},onClickPlace:function(){}};
 a.extend(b,c);
+a(d).append("<div class='myplaces-spinner'></div>");
 var e='<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">Search</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
 a(d).append(e);
 somospnt.util.ui.places.init(b.placeListTemplate,b.placeInfoTemplate,b.onPlacesChange,b.onClickPlace);
 somospnt.util.ui.map.init(b.places,b.popUpMapTemplate);
 somospnt.util.ui.searcher.init(b.country);
 somospnt.util.ui.filter.init(b.places);
-b.onLoad()
+b.onLoad();
+a(d).find(".myplaces-spinner").remove()
 }})
 }(jQuery));

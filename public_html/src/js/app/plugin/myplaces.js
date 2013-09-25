@@ -32,6 +32,8 @@
 
             $.extend(options, insertedOptions);
 
+            $(these).append("<div class='myplaces-spinner'></div>");
+
             var locaHtml = '<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">Search</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
             $(these).append(locaHtml);
 
@@ -42,6 +44,7 @@
 
             options.onLoad();
 
+            $(these).find(".myplaces-spinner").remove();
         }
     });
 }(jQuery));
