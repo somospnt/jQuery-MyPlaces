@@ -32,7 +32,7 @@ Or include all the plugin JS files:
 <script type="text/javascript" src="../../src/js/app/util/ui/places/places.js"></script>
 <script type="text/javascript" src="../../src/js/app/util/ui/searcher/searcher.js"></script>
 <script type="text/javascript" src="../../src/js/app/util/ui/filter/filter.js"></script>
-<script type="text/javascript" src="../../src/js/app/plugin/loca.js"></script>
+<script type="text/javascript" src="../../src/js/app/plugin/myplaces.js"></script>
 ```
 
 
