@@ -22,6 +22,11 @@
                 placeListTemplate: '<li>Enter a template for the list of places</li>',
                 placeInfoTemplate: '<div>Enter a template for the information of the place</div>',
                 popUpMapTemplate: '<div>Enter a template for the pop-up of the place</div>',
+                mapOptions: {
+                    zoom: 12,
+                    center: new google.maps.LatLng(-34.60909440, -58.3891520),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                },
                 onLoad: function() {
                 },
                 onPlacesChange: function() {
@@ -38,7 +43,7 @@
             $(these).append(locaHtml);
 
             somospnt.util.ui.places.init(options.placeListTemplate, options.placeInfoTemplate, options.onPlacesChange, options.onClickPlace);
-            somospnt.util.ui.map.init(options.places, options.popUpMapTemplate);
+            somospnt.util.ui.map.init(options.places, options.popUpMapTemplate, options.mapOptions);
             somospnt.util.ui.searcher.init(options.country);
             somospnt.util.ui.filter.init(options.places);
 
