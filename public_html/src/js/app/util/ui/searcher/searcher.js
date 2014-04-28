@@ -12,9 +12,9 @@
 
 somospnt.util.ui.searcher = (function() {
 
-    var autocomplete, inputAutocomplete, geocoder;
+    var autocomplete, $inputAutocomplete, geocoder;
 
-    function init(country) {
+    function init(country, searcherInputClass) {
 
         var options = {
             componentRestrictions: {country: country}
@@ -22,12 +22,12 @@ somospnt.util.ui.searcher = (function() {
 
         geocoder = new google.maps.Geocoder(options);
 
-        inputAutocomplete = $('.myplaces-searcher-input').get(0);
-        autocomplete = new google.maps.places.Autocomplete(inputAutocomplete, options);
+        $inputAutocomplete = $('.' + searcherInputClass);
+        autocomplete = new google.maps.places.Autocomplete($inputAutocomplete.get(0), options);
 
         $('.myplaces-buscar').on('click', searchBySearcher);
 
-        $('.myplaces-searcher input').on('keypress', function(e) {
+        $inputAutocomplete.on('keypress', function(e) {
             var key = e.charCode ? e.charCode : e.keyCode;
             if (key === 13) {
                 searchBySearcher();
@@ -41,12 +41,12 @@ somospnt.util.ui.searcher = (function() {
 
 
     function searchByAutocomplete() {
-        inputAutocomplete.className = '';
+        $inputAutocomplete.removeClass("notfound");
 
         var place = autocomplete.getPlace();
 
         if (!place.geometry) {
-            inputAutocomplete.className = 'notfound';
+            $inputAutocomplete.addClass("notfound");
             return;
         }
 
@@ -55,7 +55,7 @@ somospnt.util.ui.searcher = (function() {
     }
 
     function searchBySearcher() {
-        var placeToFind = $(".myplaces-searcher input").val();
+        var placeToFind = $inputAutocomplete.val();
 
         geocoder.geocode({'address': placeToFind}, function(places, status) {
             if (status === google.maps.GeocoderStatus.OK) {

@@ -14,7 +14,7 @@
     $.fn.extend({
         myplaces: function(insertedOptions) {
 
-            var these = this;
+            var $this = $(this);
 
             var options = {
                 places: [],
@@ -32,24 +32,30 @@
                 onPlacesChange: function() {
                 },
                 onClickPlace: function() {
-                }
+                },
+				searcherInputClass:"myplaces-searcher-input",
+				filterMainContainerClass:"myplaces-categories", 
+				filterContainerClass:"myplaces-filter-container", 
+				filterClass:"myplaces-check",
+				filterActiveClass:"myplaces-check-on", 
+				filterTemplateId: "filtersTemplate",
+				mainTemplateId: "mainTemplate"
             };
 
             $.extend(options, insertedOptions);
 
-            $(these).append("<div class='myplaces-spinner'></div>");
+            $this.append("<div class='myplaces-spinner'></div>");
 
-            var locaHtml = '<div class="myplaces-searcher"><input class="myplaces-searcher-input" type="text" /><ul><li class="myplaces-buscar">Search</li></ul></div><ul class="myplaces-categories"></ul><div class="myplaces-places"><div class="myplaces-placesList"><ul></ul></div><div class="myplaces-placeInfo"><div class="myplaces-infoContenido"></div></div></div><div class="myplaces-map"></div>';
-            $(these).append(locaHtml);
+            $this.append($.templates('#' + options.mainTemplateId).render());
 
             somospnt.util.ui.places.init(options.placeListTemplate, options.placeInfoTemplate, options.onPlacesChange, options.onClickPlace);
             somospnt.util.ui.map.init(options.places, options.popUpMapTemplate, options.mapOptions);
-            somospnt.util.ui.searcher.init(options.country);
-            somospnt.util.ui.filter.init(options.places);
+            somospnt.util.ui.searcher.init(options.country, options.searcherInputClass);
+            somospnt.util.ui.filter.init(options);
 
             options.onLoad();
 
-            $(these).find(".myplaces-spinner").remove();
+            $this.find(".myplaces-spinner").remove();
         }
     });
 }(jQuery));
