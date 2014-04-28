@@ -40,8 +40,7 @@
 
         <script type="text/javascript" src="../../dist/jquery.myplaces.min-1.0.js"></script>
 
-        <!-- Plugin source-->
-		<!--
+        <!-- Plugin source
         <script type="text/javascript" src="../../src/js/app/somospnt.js"></script>
         <script type="text/javascript" src="../../src/js/app/util/util.js"></script>
         <script type="text/javascript" src="../../src/js/app/util/ui/ui.js"></script>
@@ -49,9 +48,8 @@
         <script type="text/javascript" src="../../src/js/app/util/ui/places/places.js"></script>
         <script type="text/javascript" src="../../src/js/app/util/ui/searcher/searcher.js"></script>
         <script type="text/javascript" src="../../src/js/app/util/ui/filter/filter.js"></script>
-        <script type="text/javascript" src="../../src/js/app/plugin/myplaces.js"></script>
+        <script type="text/javascript" src="../../src/js/app/plugin/loca.js"></script>
         -->
-		
         <!--Js of page-->
         <script>
 
@@ -131,5 +129,32 @@
             {{:address}}
             </div>
         </script>
-    </body>
+		<script id="filtersTemplate" type="text/x-jsrender">
+            <li class="myplaces-category" >
+				<div class="myplaces-check myplaces-filter-container" id="{{:#data}}">
+					<span>{{:#data}}</span>
+				</div>
+			</li>
+        </script>
+		<script id="mainTemplate" type="text/x-jsrender">
+			<div class="myplaces-searcher">
+				<input class="myplaces-searcher-input" type="text" />
+				<ul>
+					<li class="myplaces-buscar">Search</li>
+				</ul>
+			</div>
+			<ul class="myplaces-categories">
+			</ul>
+			<div class="myplaces-places">
+				<div class="myplaces-placesList">
+					<ul></ul>
+				</div>
+				<div class="myplaces-placeInfo">
+					<div class="myplaces-infoContenido">
+					</div>
+				</div>
+			</div>
+			<div class="myplaces-map"></div>
+		</script>
+	</body>
 </html>

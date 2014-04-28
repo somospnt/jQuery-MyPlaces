@@ -12,19 +12,20 @@
 
 somospnt.util.ui.filter = (function() {
 
-    var filterTemplate;
+    var settings = {};
 
-    function init(places) {
-
-        filterTemplate = $.templates('<li class="myplaces-category"><label class="myplaces-check" for="{{:#data}}">{{:#data}}<input type="checkbox" id="{{:#data}}" /></label></li>');
-        addFilters(places);
-        $('.myplaces-category').on('click', changeFilter);
+    function init(options) {
+		settings = options;
+	
+        filterTemplate = $.templates('#' + settings.filterTemplateId);
+        addFilters(settings.places);
+        $('.' + settings.filterContainerClass).on('click', changeFilter);
     }
 
     function addFilters(places) {
 
         var filters = getFilters(places);
-        $('.myplaces-categories').append(filterTemplate.render(filters));
+        $('.' + settings.filterMainContainerClass).append(filterTemplate.render(filters));
 
     }
 
@@ -46,19 +47,21 @@ somospnt.util.ui.filter = (function() {
         return filters;
     }
 
-    function changeFilter() {
+    function changeFilter(evt) {
 
         var filters = [];
-
-        $('.myplaces-check').removeClass('myplaces-check-on');
-        $('.myplaces-check input[type=checkbox]:checked').each(
-                function(index, element) {
-                    filters.push($(element).attr('id'));
-                    $(element).parent('label').addClass('myplaces-check-on');
-                });
+		
+		$(this).toggleClass(settings.filterActiveClass);
+		
+        $('.' + settings.filterActiveClass).each(
+			function(index, element) {
+				filters.push($(element).attr('id'));
+		});
 
         somospnt.util.ui.map.filterLocations(filters);
-
+		
+		evt.stopPropagation();
+		evt.preventDefault();
     }
 
     return {
