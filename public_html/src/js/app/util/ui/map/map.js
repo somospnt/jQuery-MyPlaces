@@ -15,19 +15,13 @@ somospnt.util.ui.map = (function() {
     var map, infowindow, marker, mapPopUpTemplate;
     var locations = [];
 
-    function init(places, popUpTemplate) {
+    function init(places, popUpTemplate, mapOptions) {
         mapPopUpTemplate = $.templates(popUpTemplate);
-        initializeGoogleMaps();
+        initializeGoogleMaps(mapOptions);
         loadPlaces(places);
     }
 
-    function initializeGoogleMaps() {
-        var options = {
-            zoom: 12,
-            center: new google.maps.LatLng(-34.60909440, -58.3891520),
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-
+    function initializeGoogleMaps(options) {
         map = new google.maps.Map($('.myplaces-map').get(0), options);
         infowindow = new google.maps.InfoWindow();
 

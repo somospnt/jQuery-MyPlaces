@@ -38,7 +38,7 @@
 
         <!--Plugin-->
 
-        <script type="text/javascript" src="../../dist/jquery.myplaces.min-1.0.js"></script>
+        <script type="text/javascript" src="../../dist/jquery.myplaces.min-1.1.0.js"></script>
 
         <!-- Plugin source
         <script type="text/javascript" src="../../src/js/app/somospnt.js"></script>
@@ -84,6 +84,16 @@
                     placeListTemplate: '<li><h1>{{:name}}</h1><h3>{{:address}}</h3><h5>{{:state}}</h5><p>{{:shortDescription}}</p></li>',
                     placeInfoTemplate: '#placeInfoTemplate',
                     popUpMapTemplate: '#infowindowTemplate',
+                    mapOptions: {
+                        zoom: 12,
+                        center: new google.maps.LatLng(-34.60909440, -58.3891520),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        mapTypeControlOptions: {
+                            mapTypeIds: [
+                                google.maps.MapTypeId.TERRAIN
+                            ]
+                        }
+                    },
                     onLoad: createSrollBar
                             //onPlacesChange: callback,
                             //onClickPlace: callback

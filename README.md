@@ -97,6 +97,7 @@ $('.container').myplaces({
 | placeListTemplate | `<li>Enter a template for the list of places</li>`             | String                  | Template or its id to render the locations list with jsRender                |
 | placeInfoTemplate | `<div>Enter a template for the information of the place</div>` | String                  | Template or its id to render the selected location detail with jsRender      |
 | popUpMapTemplate  | `<div>Enter a template for the pop-up of the place</div>`      | String                  | Template or its id to render the selected location tooltip in the map with jsRender |
+| mapOptions        | `{zoom: 12, center: new google.maps.LatLng(-34.60909440, -58.3891520), mapTypeId: google.maps.MapTypeId.ROADMAP}` | Object | It's a [MapOptions](https://developers.google.com/maps/documentation/javascript/reference?csw=1#MapOptions) object to customize the map. |
 | onLoad            |                                                                | function                | Callback function, which is called when the map has been loaded |
 | onPlacesChange    |                                                                | function                | Callback function, which is called when the locations list change|
 | onClickPlace      |                                                                | function                | Callback function, which is called when click in a place |
