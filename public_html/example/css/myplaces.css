@@ -174,7 +174,7 @@ h1 {
     height: 500px;
     margin: 0;
     vertical-align: top;
-    width: 59.8%;
+    width: 59.0%;
 }
 
 .myplaces-placeInfo  h3{
@@ -234,7 +234,7 @@ h1 {
 
 .myplaces-category {
     color: #0084c7;
-    display:inline;
+    display:inline-block;
     font-size:15px;
     font-weight:400;
     padding:7px;
@@ -260,18 +260,16 @@ h1 {
     color: #0E6C8F;
 }
 
-.myplaces-category label {
-    margin: 0 0 0 5px;
+.myplaces-filter-container span{
+	margin-left: 20px;
 }
 
-.myplaces-category label:hover {
-    cursor: pointer;
+.myplaces-check { 
+	background: url(../img/check-off.png) no-repeat; 
 }
-
-.myplaces-check{ padding-left: 25px; margin-left: 10px}
-.myplaces-check { background: url(../img/check-off.png) no-repeat; }
-.myplaces-check-on { background: url(../img/check-on.png) no-repeat; }
-.myplaces-check input{ position: absolute; left: -9999px; }
+.myplaces-check.myplaces-check-on { 
+	background: url(../img/check-on.png) no-repeat; 
+}
 
 /*****************************************************
 * Info
